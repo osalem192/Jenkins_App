@@ -1,4 +1,4 @@
-FROM 3.9.10-eclipse-temurin-17-alpine
+FROM maven:sapmachine 
 
 # Set working directory in container
 WORKDIR /app
