@@ -3,8 +3,10 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'osalem192/jenkins_app'
+        namespace = "${env.GIT_BRANCH}"
+        IMAGE_NAME = "osalem192/jenkins_app_${namespace}"
         IMAGE_TAG = "v${env.BUILD_ID}"
+        
     }
 
     stages {
@@ -47,7 +49,7 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                def namespace = ""
+                // def namespace = ""
                 switch(env.GIT_BRANCH) {
                     case "dev":
                         namespace = "dev"
