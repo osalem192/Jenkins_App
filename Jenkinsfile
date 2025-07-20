@@ -49,21 +49,6 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                // def namespace = ""
-                switch(env.GIT_BRANCH) {
-                    case "dev":
-                        namespace = "dev"
-                        break
-                    case "stag":
-                        namespace = "stag"
-                        break
-                    case "main":
-                        namespace = "main"
-                        break
-                    default:
-                        error("Unknown branch: ${env.GIT_BRANCH}")
-                }
-
                 // Call shared library method
                 deployToKubernetes("kubeconfig", namespace)
             }
