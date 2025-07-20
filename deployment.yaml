@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: osalem192/argocdapp:v13
+          image: osalem192/argocdapp:v14
           ports:
             - containerPort: 80
